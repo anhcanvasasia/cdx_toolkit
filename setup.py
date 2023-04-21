@@ -4,9 +4,10 @@ from os import path
 
 from setuptools import setup
 
+cur_dir = '/home/jovyan'
 
 packages = [
-    'cdx_toolkit',
+    f'{cur_dir}/cdx_toolkit',
 ]
 
 # remember: keep requires synchronized with requirements.txt
@@ -21,7 +22,7 @@ extras_require = {
     'package': package_requirements,
 }
 
-scripts = ['scripts/cdx_size', 'scripts/cdx_iter']
+scripts = [f'{cur_dir}/scripts/cdx_size', f'{cur_dir}/scripts/cdx_iter']
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
@@ -29,7 +30,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='cdx_toolkit',
-    use_scm_version=True,
+    use_scm_version={'root': '/root/'},
     description='A toolkit for working with CDX indices',
     long_description=description,
     long_description_content_type='text/markdown',
